@@ -6,8 +6,6 @@ on:
   push:
     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -22,13 +20,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  convert_via_pandoc:
-    runs-on: ubuntu-latest
-    steps:      
-      - name: Pandoc
-      - uses: docker://pandoc/core:2.9
-        with:
-          args: "--standalone --mathjax --toc --output=./index.html main.tex"
+  
   deploy:
     environment:
       name: github-pages
