@@ -1,17 +1,18 @@
-name: Long Usage
+name: "Build"
 
-on: push
+on: [push]
 
 jobs:
   convert_via_pandoc:
     runs-on: ubuntu-latest
-    steps:
-      - run: echo "foo" > input.txt  # create an example file
+    steps:      
+      - name: Pandoc
       - uses: docker://pandoc/core:2.9
         with:
-          args: >-  # allows you to break string into multiple lines
-            --standalone
-            --mathjax
-            --toc
-            --output=index.html
-            main.tex
+          args: "--standalone --mathjax --toc --output=index.html main.tex"
+
+      - name: Publish the web pages 
+          uses:  peaceiris/actions-gh-pages@v3 
+          with: 
+            github_token: ${{ secrets.GITHUB_TOKEN }} 
+            publish_dir: ./out
