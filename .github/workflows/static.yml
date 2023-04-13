@@ -19,14 +19,17 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-jobs:
-  
+jobs:    
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Pandoc
+      - uses: docker://pandoc/core:2.9
+        with:
+          args: "--standalone --mathjax --toc --output=./index.html main.tex"
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
