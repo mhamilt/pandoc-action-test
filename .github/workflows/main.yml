@@ -1,18 +1,11 @@
-name: "Build"
+name: Simple Usage
 
-on: [push]
+on: push
 
 jobs:
   convert_via_pandoc:
-    runs-on: ubuntu-latest
-    steps:      
-      - name: Pandoc
+    runs-on: ubuntu-18.04
+    steps:
       - uses: docker://pandoc/core:2.9
         with:
-          args: "--standalone --mathjax --toc --output=index.html main.tex"
-
-      - name: Publish the web pages 
-          uses:  peaceiris/actions-gh-pages@v3 
-          with: 
-            github_token: ${{ secrets.GITHUB_TOKEN }} 
-            publish_dir: ./out
+          args: "--help" # gets appended to pandoc command
