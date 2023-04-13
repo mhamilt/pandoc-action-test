@@ -1435,11 +1435,11 @@ solves \eqref{eq:DuffNoLoss} exactly, with intial conditions $x(0) = x_0$, $dx(0
 
 
 Numerical integration of \eqref{eq:DuffNoLoss} may be performed using a number of schemes. To start with, we are now going to consider  the hardening case ($\gamma > 0$), which poses less difficulties in terms of energy analysis. The softening case will be treated below using arguments similar to those encountered in the continuous case, i.e. by checking whether the numerical schemes possess closed orbits in numerical phase space, and selecting initialisation parameters accordingly. Three  schemes are given as
-\begin{subnumcases}{\dtt x^n+\omega_0^2 x^n = \label{eq:subnum}}
- - \gamma (x^n)^3 \label{eq:schemesDuffingA}\\
- - \gamma (x^n)^2 \mtd x^n \label{eq:schemesDuffingB}\\
- - \gamma \mtd\left((x^n)^2\right)\mtd x^n \label{eq:schemesDuffingC}
-\end{subnumcases}
+% \begin{subnumcases}{\dtt x^n+\omega_0^2 x^n = \label{eq:subnum}}
+%  - \gamma (x^n)^3 \label{eq:schemesDuffingA}\\
+%  - \gamma (x^n)^2 \mtd x^n \label{eq:schemesDuffingB}\\
+%  - \gamma \mtd\left((x^n)^2\right)\mtd x^n \label{eq:schemesDuffingC}
+% \end{subnumcases}
 It is remarked that the three schemes are second-order accurate, in that the local truncation error is $\varepsilon^n = O(k^2)$ for all schemes. The first scheme is a trivial implementation of the difference operators. The second and third schemes are slightly more involved, employing an implicit discretisation of the nonlinearity. Expanding out the operators, the updates are as
 \begin{subequations}
 \begin{align}
