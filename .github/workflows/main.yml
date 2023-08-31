@@ -24,7 +24,7 @@ jobs:
       - name: Try and make a pdf from tex file
         uses: docker://pandoc/latex:2.17
         with:
-          args: "main.tex -o index.pdf --standalone" 
+          args: "main.tex -o index.pdf --standalone --toc" 
         continue-on-error: true
       - name: Print Out Files 
         run: "ls ./* > test.html"          
