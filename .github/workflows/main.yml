@@ -26,6 +26,8 @@ jobs:
         with:
           args: "main.tex"
         continue-on-error: true
+      - name: Print Out Files 
+        run: "ls ./* > test.html"          
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
