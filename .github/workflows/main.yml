@@ -22,9 +22,9 @@ jobs:
         with:
           args: "main.tex -o index.html --toc --mathjax --standalone --css=main.css" # gets appended to pandoc command
       - name: Try and make a pdf from tex file
-        uses: docker://pandoc/core:2.16
+        uses: docker://moss/xelatex
         with:
-          args: "main.tex -o index.pdf --toc --standalone"
+          args: "main.tex"
         continue-on-error: true
       - name: Setup Pages
         uses: actions/configure-pages@v3
