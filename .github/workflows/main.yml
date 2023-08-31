@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3 # this gives the workflow access to your repository files
-      - name: Run Pandoc on main tex file
       - uses: docker://pandoc/core:2.16
         with:
           args: "main.tex -o index.html --toc --mathjax --standalone --css=main.css" # gets appended to pandoc command
